@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SendHorizontal, Upload } from "lucide-react";
-
+require('dotenv').config();
 interface Message {
   id: number;
   text: string;
@@ -14,7 +14,7 @@ interface Message {
 
 declare const pdfjsLib: any;
 
-const API_KEY = "AIzaSyDpWRu-JUU8SpsDZ8Tj68Dp1bXTaa3ouFE";
+const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY!;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 export default function Chatbot() {
